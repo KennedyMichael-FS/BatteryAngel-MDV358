@@ -1,0 +1,42 @@
+<resources>
+
+    <string name="app_name">Battery Angel</string>
+
+    /// Labels for some common words and phrases used in the UI.
+    <string name="keyword_alert">Alert</string>
+    <string name="keyword_enabled">Enabled?</string>
+    <string name="keyword_percent">percent</string>
+    <string name="keyword_save">Save Alerts</string>
+    <string name="keyword_reset_defaults">Reset to Defaults</string>
+    <string name="keyword_reset">Reset</string>
+    <string name="keyword_cancel">Cancel</string>
+
+
+    /// Tags for temporary alert setup on MainActivity.
+    <string name="one">1:</string>
+    <string name="two">2:</string>
+    <string name="three">3:</string>
+    <string name="four">4:</string>
+    <string name="five">5:</string>
+    <string name="six">6:</string>
+
+
+    /// Messages and message fragments used in popups.
+    <string name="reset_alerts_toast_header">Reset Alerts?</string>
+    <string name="reset_alerts_toast_body">Reset all 6 alerts to default values? Only one will be enabled, and each will be set 10% apart from one another in the safe battery range.</string>
+
+
+    /// Messages used in notifications.
+    <string name="percentage_alert_header_preface">Battery has reached </string>
+    <string name="percentage_alert_halfone">You stated that you would like a notification from Battery Angel at </string>
+    <string name="percentage_alert_halftwo">. Keep an eye on your battery!</string>
+
+    <string name="thermal_alert_header_preface">Thermal Alert: </string>
+    <string name="thermal_alert_light">Device is heating up. Keep an eye on your device temperature!</string>
+    <string name="thermal_alert_moderate">Device is getting warm. Keep an eye on your device temperature!</string>
+    <string name="thermal_alert_severe">Device is beginning to overheat. Allow your device to cool down a little, if possible.</string>
+    <string name="thermal_alert_critical">Device is severely overheating. Discontinue use of device until it reaches a normal temperature.</string>
+    <string name="thermal_alert_emergency">Device shutdown imminent. Discontinue use of device until it cools off, approx. 15 minutes under normal conditions.</string>
+    <string name="thermal_alert_shutdown">Device will shut down any second now. Thermals have reached a destructive level. Device will shut itself down to prevent (further) damage.</string>
+
+</resources>
