@@ -10,9 +10,11 @@
     <string name="keyword_reset_defaults">Reset to Defaults</string>
     <string name="keyword_reset">Reset</string>
     <string name="keyword_cancel">Cancel</string>
+    <string name="alert_editor_title">Alert Editor</string>
+    <string name="statistics_title">Statistics</string>
 
 
-    /// Tags for temporary alert setup on MainActivity.
+    /// Tags for alert setup on AlertActivity.
     <string name="one">1:</string>
     <string name="two">2:</string>
     <string name="three">3:</string>
@@ -38,5 +40,45 @@
     <string name="thermal_alert_critical">Device is severely overheating. Discontinue use of device until it reaches a normal temperature.</string>
     <string name="thermal_alert_emergency">Device shutdown imminent. Discontinue use of device until it cools off, approx. 15 minutes under normal conditions.</string>
     <string name="thermal_alert_shutdown">Device will shut down any second now. Thermals have reached a destructive level. Device will shut itself down to prevent (further) damage.</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
+    /// Headers used on WarningActivity.
+    <string name="below20header">Discharges below 20%:</string>
+    <string name="above80header">Charges above 80%:</string>
+    <string name="thermalEventsHeader">Thermal events:</string>
+    <string name="thermalSeverityHeader">Thermal potential:</string>
+
+    // Message fragments used for WarningActivity.
+    <string name="below20none">Nice! You have not discharged below 20% in the past 7 days.</string>
+    <string name="below20low">Good start! You have only discharged below 20% %d times in the past 7 days.</string>
+    <string name="below20high">You have discharged below 20% %d times in the past 7 days.</string>
+    <string name="below20positiveSubnote">Your battery will last longer as a result of keeping the minimum recommended charge.</string>
+    <string name="below20negativeSubnote">Your battery will likely have a shorter lifespan with continued usage.</string>
+
+    <string name="above80none">Nice! You have not charged above 80% in the past 7 days.</string>
+    <string name="above80low">Good start! You have only charged above 80% %d times in the past 7 days.</string>
+    <string name="above80high">You have charged above 80% %d times in the past 7 days.</string>
+    <string name="above80positiveSubnote">Your battery will last longer as a result of infrequent overcharging.</string>
+    <string name="above80negativeSubnote">Your battery will likely not last as long if overcharging does not cease.</string>
+
+    <string name="thermalEventsNone">Nice! Your device has not had any thermal concerns in the past 7 days.</string>
+    <string name="thermalEventsLow">Good start! You have only had %d thermal events in the past 7 days.</string>
+    <string name="thermalEventsHigh">You have had %d thermal events in the past 7 days.</string>
+    <string name="thermalEventsPositiveSubnote">Continue to keep your battery cooled down to ensure your battery does not degrade quicker.</string>
+    <string name="thermalEventsNegativeSubnote">Continued overheating will degrade your battery even faster, and could cause damage to other components.</string>
+
+    <string name="thermalSeverityNone">No thermal events to report!</string>
+    <string name="thermalSeverityLow">There have been some thermal events, but not enough to cause significant damage or degradation.</string>
+    <string name="thermalSeverityMid">There has been a lot of thermal activity, with a chance to cause some thermal damage or degradation. In the future, try keeping your device cooled down and avoid use in warm environments.</string>
+    <string name="thermalSeverityHigh">There has been too much heat in the device recently, with a good chance that some thermal damage or degradation has begun. Keep your device cooled down and avoid use in warmer environments to prevent further damage.</string>
+
+    <string name="willResetOn">These counters will reset on: %s</string>
 </resources>

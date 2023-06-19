@@ -13,6 +13,7 @@ import android.os.PowerManager;
 import android.util.Log;
 
 import com.mskennedy.batteryangel.R;
+import com.mskennedy.batteryangel.models.FirebaseFuncs;
 
 import java.util.ArrayList;
 
@@ -41,6 +42,11 @@ public class BatteryBroadcastReceiver extends BroadcastReceiver {
             int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
             int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
             float batteryPercent = (level / (float) scale) * 100;
+            if (batteryPercent < 20) {
+                FirebaseFuncs.incrementCounter("below20");
+            } else if (batteryPercent > 80) {
+                FirebaseFuncs.incrementCounter("above80");
+            }
 
             for (int notificationPercent : notificationPercents) {
                 if (shouldShowNotification && batteryPercent <= notificationPercent) {
@@ -114,18 +120,22 @@ public class BatteryBroadcastReceiver extends BroadcastReceiver {
             case PowerManager.THERMAL_STATUS_SEVERE:
                 // Device is severely heated
                 Log.e("Overheat", "SEVERE: Device is overheating. May become hazardous.");
+                FirebaseFuncs.incrementCounter("thermalEvents");
                 break;
             case PowerManager.THERMAL_STATUS_CRITICAL:
                 // Device is critically heated
                 Log.e("Overheat", "CRITICAL: Device is overheating. May shut down soon. Hazardous.");
+                FirebaseFuncs.incrementCounter("thermalEvents");
                 break;
             case PowerManager.THERMAL_STATUS_EMERGENCY:
                 // Device is now at risk of damage
                 Log.e("Overheat", "EMERGENCY: Device is at risk of thermal damage. Shutdown imminent.");
+                FirebaseFuncs.incrementCounter("thermalEvents");
                 break;
             case PowerManager.THERMAL_STATUS_SHUTDOWN:
                 // Device is forcing thermal shutdown
                 Log.e("MAYDAY", "MAYDAY: Device may have suffered thermal damage. Shutting down now.");
+                FirebaseFuncs.incrementCounter("thermalEvents");
                 break;
             default:
                 // Unknown thermal status

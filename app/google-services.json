@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1057933657242",
+    "firebase_url": "https://battery-angel-default-rtdb.firebaseio.com",
+    "project_id": "battery-angel",
+    "storage_bucket": "battery-angel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057933657242:android:87e2d21737de2fd27fcb23",
+        "android_client_info": {
+          "package_name": "com.mskennedy.batteryangel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057933657242-3k3lb6lge97kr0na840hrlpnjrp1njqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXaYtoH56cLeJm16q6jTBVKzrRjUBAkz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057933657242-3k3lb6lge97kr0na840hrlpnjrp1njqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
