@@ -1,5 +1,7 @@
 package com.mskennedy.batteryangel.activity;
 
+import static com.mskennedy.batteryangel.activity.MainActivity.prefsEdit;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -17,6 +19,9 @@ public class StatisticsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (prefsEdit.getSharedPrefs().getBoolean("relentlessActive", false)) {
+            setTheme(R.style.Theme_BatteryAngel_Relentless);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
@@ -38,7 +43,7 @@ public class StatisticsActivity extends AppCompatActivity {
             public void onError(DatabaseError error) {
                 setBelow20Text(0);
             }
-        });
+        }, getApplicationContext());
     }
 
     private void fetchAbove80Count() {
@@ -52,7 +57,21 @@ public class StatisticsActivity extends AppCompatActivity {
             public void onError(DatabaseError error) {
                 setAbove80Text(0);
             }
-        });
+        }, getApplicationContext());
+    }
+
+    private void fetchThermalEventCount() {
+        FirebaseFuncs.getCounterValue("thermalEvents", new FirebaseFuncs.CounterValueCallback() {
+            @Override
+            public void onCounterValue(int value) {
+                //setThermalEventText(value);
+            }
+
+            @Override
+            public void onError(DatabaseError error) {
+                //setThermalEventText(0);
+            }
+        }, getApplicationContext());
     }
 
     @SuppressLint("StringFormatMatches")

@@ -29,6 +29,28 @@
         app:layout_constraintTop_toBottomOf="@+id/below20body" />
 
     <TextView
+        android:id="@+id/thermalEventsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/thermalEventsHeader"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/above80body" />
+
+    <TextView
+        android:id="@+id/thermalSeverityHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/thermalSeverityHeader"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thermalEventsBody" />
+
+    <TextView
         android:id="@+id/below20body"
         android:layout_width="0dp"
         android:layout_height="64dp"
@@ -48,4 +70,26 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/below20header"
         app:layout_constraintTop_toBottomOf="@+id/above80header" />
+
+    <TextView
+        android:id="@+id/thermalEventsBody"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/thermalEventsNone"
+        app:layout_constraintEnd_toEndOf="@+id/below20header"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/below20header"
+        app:layout_constraintTop_toBottomOf="@+id/thermalEventsHeader" />
+
+    <TextView
+        android:id="@+id/thermalSeverityBody"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/thermalSeverityNone"
+        app:layout_constraintEnd_toEndOf="@+id/below20header"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/below20header"
+        app:layout_constraintTop_toBottomOf="@+id/thermalSeverityHeader" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ public class LoginRepository {
 
     private static volatile LoginRepository instance;
 
-    private LoginDataSource dataSource;
+    private final LoginDataSource dataSource;
 
     // If user credentials will be cached in local storage, it is recommended it be encrypted
     // @see https://developer.android.com/training/articles/keystore
@@ -35,6 +35,19 @@ public class LoginRepository {
     public void logout() {
         user = null;
         dataSource.logout();
+    }
+
+    public Result<LoggedInUser> register(String username, String password) {
+        try {
+            // Perform the registration process here
+            // You can use Firebase Authentication or any other backend service for registration
+
+            // Simulating a successful registration
+            LoggedInUser user = new LoggedInUser(java.util.UUID.randomUUID().toString(), username);
+            return new Result.Success<>(user);
+        } catch (Exception e) {
+            return new Result.Error(e.getMessage());
+        }
     }
 
     private void setLoggedInUser(LoggedInUser user) {

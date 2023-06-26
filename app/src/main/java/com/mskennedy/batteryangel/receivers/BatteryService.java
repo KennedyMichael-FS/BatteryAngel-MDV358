@@ -1,16 +1,12 @@
 package com.mskennedy.batteryangel.receivers;
 
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Build;
 import android.os.IBinder;
-import android.os.PowerManager;
-import android.util.Log;
 
-import androidx.annotation.RequiresApi;
-
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.FirebaseDatabase;
 import com.mskennedy.batteryangel.models.MutablePrefs;
 
 public class BatteryService extends Service {
@@ -20,6 +16,7 @@ public class BatteryService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+
         MutablePrefs prefEdit = new MutablePrefs(getApplicationContext());
         batteryReceiver = new BatteryBroadcastReceiver(getApplicationContext(), prefEdit.loadAllActivePercentInts());
         IntentFilter batteryFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);

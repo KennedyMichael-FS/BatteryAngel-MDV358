@@ -22,7 +22,7 @@ public class Result<T> {
 
     // Success sub-class
     public final static class Success<T> extends Result {
-        private T data;
+        private final T data;
 
         public Success(T data) {
             this.data = data;
@@ -35,13 +35,13 @@ public class Result<T> {
 
     // Error sub-class
     public final static class Error extends Result {
-        private Exception error;
+        private final String error;
 
-        public Error(Exception error) {
+        public Error(String error) {
             this.error = error;
         }
 
-        public Exception getError() {
+        public String getError() {
             return this.error;
         }
     }

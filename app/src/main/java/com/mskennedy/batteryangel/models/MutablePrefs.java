@@ -23,6 +23,13 @@ public class MutablePrefs {
         return context.getSharedPreferences("alertPrefs", Context.MODE_PRIVATE);
     }
 
+    // Get UID
+
+    public String getUserId(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences("alertPrefs", Context.MODE_PRIVATE);
+        return preferences.getString("uid_persist", null);
+    }
+
 
 
     // For saving data pertaining to alerts.
@@ -64,16 +71,17 @@ public class MutablePrefs {
         editor.apply();
     }
 
-    // For saving data pertaining to thermals.
-
-    public void saveThermalPoints(int severity) {
+    public void saveRelentlessRange(int percentage) {
         SharedPreferences.Editor editor = getSharedPrefsEditor();
-        SharedPreferences sP = getSharedPrefs();
-        int currentEvents = sP.getInt("thermalEventCounter", 0);
-        editor.putInt("thermalEventCounter", currentEvents + severity);
+        editor.putInt("relentlessSaferange", percentage);
         editor.apply();
     }
 
+    public void saveRelentlessToggle(boolean active) {
+        SharedPreferences.Editor editor = getSharedPrefsEditor();
+        editor.putBoolean("relentlessActive", active);
+        editor.apply();
+    }
 
     // For loading data pertaining to alerts.
 

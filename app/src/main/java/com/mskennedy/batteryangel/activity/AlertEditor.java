@@ -9,9 +9,13 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.mskennedy.batteryangel.R;
 import com.mskennedy.batteryangel.receivers.BatteryService;
@@ -21,9 +25,45 @@ public class AlertEditor extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (prefsEdit.getSharedPrefs().getBoolean("relentlessActive", false)) {
+            setTheme(R.style.Theme_BatteryAngel_Relentless);
+        }
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_alertedit);
+
+        if (prefsEdit.getSharedPrefs().getBoolean("relentlessActive", false)) {
+            TextView relentlessActiveLabel = findViewById(R.id.relentlessStatusEditorLabel);
+            relentlessActiveLabel.setVisibility(View.VISIBLE);
+            TextView relentlessSaferangeLabel = findViewById(R.id.relentlessSaferangeLabel);
+            relentlessSaferangeLabel.setVisibility(View.VISIBLE);
+            TextView relentlessPercentLabel = findViewById(R.id.percent7);
+            relentlessPercentLabel.setVisibility(View.VISIBLE);
+            EditText relentlessSaferangeEdit = findViewById(R.id.relentlessSaferangeEdit);
+            relentlessSaferangeEdit.setVisibility(View.VISIBLE);
+            relentlessSaferangeEdit.setText(String.valueOf(prefsEdit.getSharedPrefs().getInt("relentlessSaferange", 30)));
+            relentlessSaferangeEdit.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+                    // Req'd method
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                    // This method is called when the text is changing
+                    if (!relentlessSaferangeEdit.getText().toString().equals("")) {
+                        String newValue = charSequence.toString();
+                        prefsEdit.saveRelentlessRange(Integer.parseInt(newValue));
+                        Log.d("Edited pref", String.valueOf(prefsEdit.getSharedPrefs().getInt("relentlessSaferange", 0)));
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    // Req'd method
+                }
+
+            });
+        }
 
         // Reiterating the service in this class to start/restart later.
         Intent intent = new Intent(this, BatteryService.class);
